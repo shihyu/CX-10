@@ -1,12 +1,12 @@
-/*	Cheerson CX-10 integrated RF rate mode firmware.
-	 - NRF24 Radio driver header.
+/*  Cheerson CX-10 integrated RF rate mode firmware.
+     - NRF24 Radio driver header.
 
-	This source is mostly dervived from the Crazyflie control firmware
-	whose original GPLv3 license is repeated below.
+    This source is mostly dervived from the Crazyflie control firmware
+    whose original GPLv3 license is repeated below.
 
-	For more details see the Bitcraze website: http://www.bitcraze.se.
+    For more details see the Bitcraze website: http://www.bitcraze.se.
 
-	All original components are provided under the GPLv3:
+    All original components are provided under the GPLv3:
 
     Copyright (C) 2015, Samuel Powell.
 
@@ -25,8 +25,8 @@
 */
 
 /*
- *    ||          ____  _ __                           
- * +------+      / __ )(_) /_______________ _____  ___ 
+ *    ||          ____  _ __
+ * +------+      / __ )(_) /_______________ _____  ___
  * | 0xBC |     / __  / / __/ ___/ ___/ __ `/_  / / _ \
  * +------+    / /_/ / / /_/ /__/ /  / /_/ / / /_/  __/
  *  ||  ||    /_____/_/\__/\___/_/   \__,_/ /___/\___/
@@ -60,17 +60,17 @@ void nrfInit(void);
 bool nrfTest(void);
 
 // Interrupt routine
-void nrfIsr( void);
+void nrfIsr(void);
 
 // Defines
 #define RADIO_RATE_250K 0
 #define RADIO_RATE_1M 1
 #define RADIO_RATE_2M 2
 
-#define ACTIVATE_DATA   				0x73
-#define ACTIVATE_BK2423_DATA   	0x53
+#define ACTIVATE_DATA                   0x73
+#define ACTIVATE_BK2423_DATA    0x53
 
-#define DUMMY_BYTE    					0xA5
+#define DUMMY_BYTE                      0xA5
 
 /* Registers address definition */
 #define REG_CONFIG 0x00
@@ -164,47 +164,47 @@ void nrfIsr( void);
 #define NRF_STATUS_CLEAR 0x70
 
 // SPI commands
-#define CMD_R_REG              	0x00
-#define CMD_W_REG              	0x20
-#define CMD_R_RX_PAYLOAD       	0x61
-#define CMD_W_TX_PAYLOAD       	0xA0
-#define CMD_FLUSH_TX           	0xE1
-#define CMD_FLUSH_RX           	0xE2
-#define CMD_REUSE_TX_PL        	0xE3
-#define CMD_ACTIVATE           	0x50
-#define CMD_ACTIVATE_BK2423    	0x53
-#define CMD_RX_PL_WID          	0x60
-#define CMD_W_ACK_PAYLOAD(P)  	(0xA8|(P&0x0F))
-#define CMD_W_PAYLOAD_NO_ACK   	0xD0
-#define CMD_NOP                	0xFF
+#define CMD_R_REG               0x00
+#define CMD_W_REG               0x20
+#define CMD_R_RX_PAYLOAD        0x61
+#define CMD_W_TX_PAYLOAD        0xA0
+#define CMD_FLUSH_TX            0xE1
+#define CMD_FLUSH_RX            0xE2
+#define CMD_REUSE_TX_PL         0xE3
+#define CMD_ACTIVATE            0x50
+#define CMD_ACTIVATE_BK2423     0x53
+#define CMD_RX_PL_WID           0x60
+#define CMD_W_ACK_PAYLOAD(P)    (0xA8|(P&0x0F))
+#define CMD_W_PAYLOAD_NO_ACK    0xD0
+#define CMD_NOP                 0xFF
 
 
 
 /* Low level reg access
  * FIXME: the user should not need to access raw registers...
  */
-unsigned char nrfReadReg(unsigned char address, char *buffer, int len);
+unsigned char nrfReadReg(unsigned char address, char* buffer, int len);
 unsigned char nrfRead1Reg(unsigned char address);
-unsigned char nrfWriteReg(unsigned char address, char *buffer, int len);
+unsigned char nrfWriteReg(unsigned char address, char* buffer, int len);
 unsigned char nrfWrite1Reg(unsigned char address, char byte);
 
 //Interrupt access
 void nrfSetInterruptCallback(void (*cb)(void));
 
 // Low level functionality of the nrf chip
-unsigned char nrfNop( void );
-unsigned char nrfFlushRx( void );
-unsigned char nrfFlushTx( void );
+unsigned char nrfNop(void);
+unsigned char nrfFlushRx(void);
+unsigned char nrfFlushTx(void);
 unsigned char nrfRxLength(unsigned int pipe);
-unsigned char nrfActivate( void );
-unsigned char nrfActivateBK2423( void );
-unsigned char nrfWriteAck(unsigned int pipe, char *buffer, int len);
-unsigned char nrfReadRX(char *buffer, int len);
+unsigned char nrfActivate(void);
+unsigned char nrfActivateBK2423(void);
+unsigned char nrfWriteAck(unsigned int pipe, char* buffer, int len);
+unsigned char nrfReadRX(char* buffer, int len);
 void nrfSetChannel(unsigned int channel);
 void nrfSetDatarate(int datarate);
 void nrfSetAddress(unsigned int pipe, char* address);
 void nrfSetEnable(bool enable);
-unsigned char nrfGetStatus( void );
+unsigned char nrfGetStatus(void);
 
 
 

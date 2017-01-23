@@ -4,7 +4,7 @@
   * @author  MCD Application Team
   * @version V1.3.0
   * @date    16-January-2014
-  * @brief   This file contains all the functions prototypes for the SYSCFG firmware 
+  * @brief   This file contains all the functions prototypes for the SYSCFG firmware
   *          library.
   ******************************************************************************
   * @attention
@@ -17,8 +17,8 @@
   *
   *        http://www.st.com/software_license_agreement_liberty_v2
   *
-  * Unless required by applicable law or agreed to in writing, software 
-  * distributed under the License is distributed on an "AS IS" BASIS, 
+  * Unless required by applicable law or agreed to in writing, software
+  * distributed under the License is distributed on an "AS IS" BASIS,
   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   * See the License for the specific language governing permissions and
   * limitations under the License.
@@ -31,7 +31,7 @@
 #define __STM32F0XX_SYSCFG_H
 
 #ifdef __cplusplus
- extern "C" {
+extern "C" {
 #endif
 
 /*!< Includes ------------------------------------------------------------------*/
@@ -49,11 +49,11 @@
 
 /** @defgroup SYSCFG_Exported_Constants
   * @{
-  */ 
-  
-/** @defgroup SYSCFG_EXTI_Port_Sources 
+  */
+
+/** @defgroup SYSCFG_EXTI_Port_Sources
   * @{
-  */ 
+  */
 #define EXTI_PortSourceGPIOA       ((uint8_t)0x00)
 #define EXTI_PortSourceGPIOB       ((uint8_t)0x01)
 #define EXTI_PortSourceGPIOC       ((uint8_t)0x02)
@@ -62,18 +62,18 @@
 #define EXTI_PortSourceGPIOF       ((uint8_t)0x05)
 
 #define IS_EXTI_PORT_SOURCE(PORTSOURCE) (((PORTSOURCE) == EXTI_PortSourceGPIOA) || \
-                                         ((PORTSOURCE) == EXTI_PortSourceGPIOB) || \
-                                         ((PORTSOURCE) == EXTI_PortSourceGPIOC) || \
-                                         ((PORTSOURCE) == EXTI_PortSourceGPIOD) || \
-                                         ((PORTSOURCE) == EXTI_PortSourceGPIOE) || \
-                                         ((PORTSOURCE) == EXTI_PortSourceGPIOF)) 
+        ((PORTSOURCE) == EXTI_PortSourceGPIOB) || \
+        ((PORTSOURCE) == EXTI_PortSourceGPIOC) || \
+        ((PORTSOURCE) == EXTI_PortSourceGPIOD) || \
+        ((PORTSOURCE) == EXTI_PortSourceGPIOE) || \
+        ((PORTSOURCE) == EXTI_PortSourceGPIOF))
 /**
   * @}
   */
 
-/** @defgroup SYSCFG_EXTI_Pin_sources 
+/** @defgroup SYSCFG_EXTI_Pin_sources
   * @{
-  */ 
+  */
 #define EXTI_PinSource0            ((uint8_t)0x00)
 #define EXTI_PinSource1            ((uint8_t)0x01)
 #define EXTI_PinSource2            ((uint8_t)0x02)
@@ -111,9 +111,9 @@
   * @}
   */
 
-/** @defgroup SYSCFG_Memory_Remap_Config 
+/** @defgroup SYSCFG_Memory_Remap_Config
   * @{
-  */ 
+  */
 #define SYSCFG_MemoryRemap_Flash                ((uint8_t)0x00)
 #define SYSCFG_MemoryRemap_SystemMemory         ((uint8_t)0x01)
 #define SYSCFG_MemoryRemap_SRAM                 ((uint8_t)0x03)
@@ -127,13 +127,13 @@
   * @}
   */
 
-/** @defgroup SYSCFG_DMA_Remap_Config 
+/** @defgroup SYSCFG_DMA_Remap_Config
   * @{
-  */ 
+  */
 #define SYSCFG_DMARemap_TIM3        SYSCFG_CFGR1_TIM3_DMA_RMP      /* Remap TIM3 DMA requests from channel4 to channel6, 
                                                                       available only for STM32F072 devices */
 #define SYSCFG_DMARemap_TIM2        SYSCFG_CFGR1_TIM2_DMA_RMP      /* Remap TIM2 DMA requests from channel3/4 to channel7, 
-                                                                      available only for STM32F072 devices */ 
+                                                                      available only for STM32F072 devices */
 #define SYSCFG_DMARemap_TIM1        SYSCFG_CFGR1_TIM1_DMA_RMP      /* Remap TIM1 DMA requests from channel2/3/4 to channel6, 
                                                                       available only for STM32F072 devices */
 #define SYSCFG_DMARemap_I2C1        SYSCFG_CFGR1_I2C1_DMA_RMP      /* Remap I2C1 DMA requests from channel3/2 to channel7/6, 
@@ -153,7 +153,7 @@
 #define SYSCFG_DMARemap_USART1Rx    SYSCFG_CFGR1_USART1RX_DMA_RMP /* Remap USART1 Rx DMA requests from channel3 to channel5 */
 #define SYSCFG_DMARemap_USART1Tx    SYSCFG_CFGR1_USART1TX_DMA_RMP /* Remap USART1 Tx DMA requests from channel2 to channel4 */
 #define SYSCFG_DMARemap_ADC1        SYSCFG_CFGR1_ADC_DMA_RMP      /* Remap ADC1 DMA requests from channel1 to channel2 */
-  
+
 #define IS_SYSCFG_DMA_REMAP(REMAP) (((REMAP) == SYSCFG_DMARemap_TIM17) || \
                                     ((REMAP) == SYSCFG_DMARemap_TIM16) || \
                                     ((REMAP) == SYSCFG_DMARemap_USART1Rx) || \
@@ -173,9 +173,9 @@
   * @}
   */
 
-/** @defgroup SYSCFG_I2C_FastModePlus_Config 
+/** @defgroup SYSCFG_I2C_FastModePlus_Config
   * @{
-  */ 
+  */
 #define SYSCFG_I2CFastModePlus_PB6       SYSCFG_CFGR1_I2C_FMP_PB6 /* Enable Fast Mode Plus on PB6 */
 #define SYSCFG_I2CFastModePlus_PB7       SYSCFG_CFGR1_I2C_FMP_PB7 /* Enable Fast Mode Plus on PB7 */
 #define SYSCFG_I2CFastModePlus_PB8       SYSCFG_CFGR1_I2C_FMP_PB8 /* Enable Fast Mode Plus on PB8 */
@@ -199,9 +199,9 @@
   * @}
   */
 
-/** @defgroup SYSCFG_Lock_Config 
+/** @defgroup SYSCFG_Lock_Config
   * @{
-  */ 
+  */
 #define SYSCFG_Break_PVD                     SYSCFG_CFGR2_PVD_LOCK       /*!< Connects the PVD event to the Break Input of TIM1, not available for STM32F030 devices */
 #define SYSCFG_Break_SRAMParity              SYSCFG_CFGR2_SRAM_PARITY_LOCK  /*!< Connects the SRAM_PARITY error signal to the Break Input of TIM1 */
 #define SYSCFG_Break_Lockup                  SYSCFG_CFGR2_LOCKUP_LOCK       /*!< Connects Lockup output of CortexM0 to the break input of TIM1 */
@@ -214,7 +214,7 @@
   * @}
   */
 
-/** @defgroup SYSCFG_flags_definition 
+/** @defgroup SYSCFG_flags_definition
   * @{
   */
 
@@ -236,11 +236,14 @@
 /*  Function used to set the SYSCFG configuration to the default reset state **/
 void SYSCFG_DeInit(void);
 
-/* SYSCFG configuration functions *********************************************/ 
+/* SYSCFG configuration functions *********************************************/
 void SYSCFG_MemoryRemapConfig(uint32_t SYSCFG_MemoryRemap);
-void SYSCFG_DMAChannelRemapConfig(uint32_t SYSCFG_DMARemap, FunctionalState NewState);
-void SYSCFG_I2CFastModePlusConfig(uint32_t SYSCFG_I2CFastModePlus, FunctionalState NewState);
-void SYSCFG_EXTILineConfig(uint8_t EXTI_PortSourceGPIOx, uint8_t EXTI_PinSourcex);
+void SYSCFG_DMAChannelRemapConfig(uint32_t SYSCFG_DMARemap,
+                                  FunctionalState NewState);
+void SYSCFG_I2CFastModePlusConfig(uint32_t SYSCFG_I2CFastModePlus,
+                                  FunctionalState NewState);
+void SYSCFG_EXTILineConfig(uint8_t EXTI_PortSourceGPIOx,
+                           uint8_t EXTI_PinSourcex);
 void SYSCFG_BreakConfig(uint32_t SYSCFG_Break);
 FlagStatus SYSCFG_GetFlagStatus(uint32_t SYSCFG_Flag);
 void SYSCFG_ClearFlag(uint32_t SYSCFG_Flag);
@@ -253,10 +256,10 @@ void SYSCFG_ClearFlag(uint32_t SYSCFG_Flag);
 
 /**
   * @}
-  */ 
+  */
 
 /**
   * @}
-  */ 
+  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

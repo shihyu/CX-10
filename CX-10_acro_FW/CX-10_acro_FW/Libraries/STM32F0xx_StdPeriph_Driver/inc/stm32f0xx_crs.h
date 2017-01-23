@@ -4,7 +4,7 @@
   * @author  MCD Application Team
   * @version V1.3.0
   * @date    16-January-2014
-  * @brief   This file contains all the functions prototypes for the CRS firmware 
+  * @brief   This file contains all the functions prototypes for the CRS firmware
   *          library, applicable only for STM32F042 and STM32F072 devices.
   ******************************************************************************
   * @attention
@@ -17,8 +17,8 @@
   *
   *        http://www.st.com/software_license_agreement_liberty_v2
   *
-  * Unless required by applicable law or agreed to in writing, software 
-  * distributed under the License is distributed on an "AS IS" BASIS, 
+  * Unless required by applicable law or agreed to in writing, software
+  * distributed under the License is distributed on an "AS IS" BASIS,
   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   * See the License for the specific language governing permissions and
   * limitations under the License.
@@ -31,7 +31,7 @@
 #define __STM32F0XX_CRS_H
 
 #ifdef __cplusplus
- extern "C" {
+extern "C" {
 #endif
 
 /*!< Includes ----------------------------------------------------------------*/
@@ -61,13 +61,13 @@
 
 #define IS_CRS_IT(IT) (((IT) == CRS_IT_SYNCOK) || ((IT) == CRS_IT_SYNCWARN) || \
                        ((IT) == CRS_IT_ERR)  || ((IT) == CRS_IT_ESYNC))
-                       
+
 #define IS_CRS_GET_IT(IT) (((IT) == CRS_IT_SYNCOK) || ((IT) == CRS_IT_SYNCWARN) || \
                            ((IT) == CRS_IT_ERR) || ((IT) == CRS_IT_ESYNC) || \
                            ((IT) == CRS_IT_TRIMOVF) || ((IT) == CRS_IT_SYNCERR) || \
                            ((IT) == CRS_IT_SYNCMISS))
 
-#define IS_CRS_CLEAR_IT(IT) ((IT) != 0x00)                                         
+#define IS_CRS_CLEAR_IT(IT) ((IT) != 0x00)
 
 /**
   * @}
@@ -92,7 +92,7 @@
 /**
   * @}
   */
-  
+
 /** @defgroup CRS_Synchro_Source
   * @{
   */
@@ -134,20 +134,20 @@
 #define CRS_SYNCPolarity_Falling      CRS_CFGR_SYNCPOL      /*!< Synchro Active on falling edge */
 
 #define IS_CRS_SYNC_POLARITY(POLARITY) (((POLARITY) == CRS_SYNCPolarity_Rising) || \
-                                    ((POLARITY) == CRS_SYNCPolarity_Falling))
+                                        ((POLARITY) == CRS_SYNCPolarity_Falling))
 /**
   * @}
   */
 
 
-    
+
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
 /* Configuration of the CRS **********************************/
 void CRS_DeInit(void);
 void CRS_AdjustHSI48CalibrationValue(uint8_t CRS_HSI48CalibrationValue);
 void CRS_FrequencyErrorCounterCmd(FunctionalState NewState);
-void CRS_AutomaticCalibrationCmd(FunctionalState NewState); 
+void CRS_AutomaticCalibrationCmd(FunctionalState NewState);
 void CRS_SoftwareSynchronizationGenerate(void);
 void CRS_FrequencyErrorCounterReload(uint32_t CRS_ReloadValue);
 void CRS_FrequencyErrorLimitConfig(uint8_t CRS_ErrorLimitValue);

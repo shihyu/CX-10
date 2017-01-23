@@ -4,7 +4,7 @@
   * @author  MCD Application Team
   * @version V1.3.0
   * @date    16-January-2014
-  * @brief   This file provides firmware functions to manage the following 
+  * @brief   This file provides firmware functions to manage the following
   *          functionalities of the Debug MCU (DBGMCU) peripheral:
   *           + Device and Revision ID management
   *           + Peripherals Configuration
@@ -22,8 +22,8 @@
   *
   *        http://www.st.com/software_license_agreement_liberty_v2
   *
-  * Unless required by applicable law or agreed to in writing, software 
-  * distributed under the License is distributed on an "AS IS" BASIS, 
+  * Unless required by applicable law or agreed to in writing, software
+  * distributed under the License is distributed on an "AS IS" BASIS,
   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   * See the License for the specific language governing permissions and
   * limitations under the License.
@@ -38,7 +38,7 @@
   * @{
   */
 
-/** @defgroup DBGMCU 
+/** @defgroup DBGMCU
   * @brief DBGMCU driver modules
   * @{
   */
@@ -52,10 +52,10 @@
 /* Private function prototypes -----------------------------------------------*/
 /* Private functions ---------------------------------------------------------*/
 
-/** @defgroup DBGMCU_Private_Functions 
+/** @defgroup DBGMCU_Private_Functions
   * @{
   */
-  
+
 
 /** @defgroup DBGMCU_Group1 Device and Revision ID management functions
  *  @brief   Device and Revision ID management functions
@@ -76,7 +76,7 @@
   */
 uint32_t DBGMCU_GetREVID(void)
 {
-   return(DBGMCU->IDCODE >> 16);
+    return (DBGMCU->IDCODE >> 16);
 }
 
 /**
@@ -86,13 +86,13 @@ uint32_t DBGMCU_GetREVID(void)
   */
 uint32_t DBGMCU_GetDEVID(void)
 {
-   return(DBGMCU->IDCODE & IDCODE_DEVID_MASK);
+    return (DBGMCU->IDCODE & IDCODE_DEVID_MASK);
 }
 
 /**
   * @}
   */
-  
+
 /** @defgroup DBGMCU_Group2 Peripherals Configuration functions
  *  @brief   Peripherals Configuration
  *
@@ -117,18 +117,15 @@ uint32_t DBGMCU_GetDEVID(void)
   */
 void DBGMCU_Config(uint32_t DBGMCU_Periph, FunctionalState NewState)
 {
-  /* Check the parameters */
-  assert_param(IS_DBGMCU_PERIPH(DBGMCU_Periph));
-  assert_param(IS_FUNCTIONAL_STATE(NewState));
+    /* Check the parameters */
+    assert_param(IS_DBGMCU_PERIPH(DBGMCU_Periph));
+    assert_param(IS_FUNCTIONAL_STATE(NewState));
 
-  if (NewState != DISABLE)
-  {
-    DBGMCU->CR |= DBGMCU_Periph;
-  }
-  else
-  {
-    DBGMCU->CR &= ~DBGMCU_Periph;
-  }
+    if (NewState != DISABLE) {
+        DBGMCU->CR |= DBGMCU_Periph;
+    } else {
+        DBGMCU->CR &= ~DBGMCU_Periph;
+    }
 }
 
 
@@ -136,39 +133,36 @@ void DBGMCU_Config(uint32_t DBGMCU_Periph, FunctionalState NewState)
   * @brief  Configures APB1 peripheral behavior when the MCU is in Debug mode.
   * @param  DBGMCU_Periph: specifies the APB1 peripheral.
   *          This parameter can be any combination of the following values:
-  *             @arg DBGMCU_TIM2_STOP: TIM2 counter stopped when Core is halted, 
-  *                  not applicable for STM32F030 devices   
+  *             @arg DBGMCU_TIM2_STOP: TIM2 counter stopped when Core is halted,
+  *                  not applicable for STM32F030 devices
   *             @arg DBGMCU_TIM3_STOP: TIM3 counter stopped when Core is halted
   *             @arg DBGMCU_TIM6_STOP: TIM6 counter stopped when Core is halted
-  *             @arg DBGMCU_TIM7_STOP: TIM7 counter stopped when Core is halted, 
-  *                  applicable only for STM32F072 devices               
+  *             @arg DBGMCU_TIM7_STOP: TIM7 counter stopped when Core is halted,
+  *                  applicable only for STM32F072 devices
   *             @arg DBGMCU_TIM14_STOP: TIM14 counter stopped when Core is halted
-  *             @arg DBGMCU_RTC_STOP: RTC Calendar and Wakeup counter stopped 
+  *             @arg DBGMCU_RTC_STOP: RTC Calendar and Wakeup counter stopped
   *                                   when Core is halted.
   *             @arg DBGMCU_WWDG_STOP: Debug WWDG stopped when Core is halted
   *             @arg DBGMCU_IWDG_STOP: Debug IWDG stopped when Core is halted
-  *             @arg DBGMCU_I2C1_SMBUS_TIMEOUT: I2C1 SMBUS timeout mode stopped 
+  *             @arg DBGMCU_I2C1_SMBUS_TIMEOUT: I2C1 SMBUS timeout mode stopped
   *                                             when Core is halted
-  *             @arg DBGMCU_CAN1_STOP: Debug CAN1 stopped when Core is halted, 
-  *                  applicable only for STM32F042 and STM32F072 devices               
+  *             @arg DBGMCU_CAN1_STOP: Debug CAN1 stopped when Core is halted,
+  *                  applicable only for STM32F042 and STM32F072 devices
   * @param  NewState: new state of the specified APB1 peripheral in Debug mode.
   *          This parameter can be: ENABLE or DISABLE.
   * @retval None
   */
 void DBGMCU_APB1PeriphConfig(uint32_t DBGMCU_Periph, FunctionalState NewState)
 {
-  /* Check the parameters */
-  assert_param(IS_DBGMCU_APB1PERIPH(DBGMCU_Periph));
-  assert_param(IS_FUNCTIONAL_STATE(NewState));
+    /* Check the parameters */
+    assert_param(IS_DBGMCU_APB1PERIPH(DBGMCU_Periph));
+    assert_param(IS_FUNCTIONAL_STATE(NewState));
 
-  if (NewState != DISABLE)
-  {
-    DBGMCU->APB1FZ |= DBGMCU_Periph;
-  }
-  else
-  {
-    DBGMCU->APB1FZ &= ~DBGMCU_Periph;
-  }
+    if (NewState != DISABLE) {
+        DBGMCU->APB1FZ |= DBGMCU_Periph;
+    } else {
+        DBGMCU->APB1FZ &= ~DBGMCU_Periph;
+    }
 }
 
 /**
@@ -185,24 +179,21 @@ void DBGMCU_APB1PeriphConfig(uint32_t DBGMCU_Periph, FunctionalState NewState)
   */
 void DBGMCU_APB2PeriphConfig(uint32_t DBGMCU_Periph, FunctionalState NewState)
 {
-  /* Check the parameters */
-  assert_param(IS_DBGMCU_APB2PERIPH(DBGMCU_Periph));
-  assert_param(IS_FUNCTIONAL_STATE(NewState));
+    /* Check the parameters */
+    assert_param(IS_DBGMCU_APB2PERIPH(DBGMCU_Periph));
+    assert_param(IS_FUNCTIONAL_STATE(NewState));
 
-  if (NewState != DISABLE)
-  {
-    DBGMCU->APB2FZ |= DBGMCU_Periph;
-  }
-  else
-  {
-    DBGMCU->APB2FZ &= ~DBGMCU_Periph;
-  }
+    if (NewState != DISABLE) {
+        DBGMCU->APB2FZ |= DBGMCU_Periph;
+    } else {
+        DBGMCU->APB2FZ &= ~DBGMCU_Periph;
+    }
 }
 
 /**
   * @}
   */
-  
+
 /**
   * @}
   */

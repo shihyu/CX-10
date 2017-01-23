@@ -7,10 +7,10 @@
 
 // Internal RF (only applicable to red FC at present)
 #ifdef CX_10_RED_BOARD
- 
- #define CX_10_RED_RF
- //#define MOTOR_DISABLE // Test mode 
- 
+
+#define CX_10_RED_RF
+//#define MOTOR_DISABLE // Test mode
+
 #endif
 
 
@@ -56,41 +56,41 @@
 
 
 #if defined(CX_10_RED_BOARD) || defined(FORCE_SERIAL)
-	#define SERIAL_ACTIVE
+#define SERIAL_ACTIVE
 #endif
 
 #if defined(CX_10_RED_BOARD)
-	#define LEDon Bit_SET
-	#define LEDoff Bit_RESET
-	
-	#define LED1_PORT GPIOB
-	#define LED1_BIT GPIO_Pin_2
-	
-	#define LED2_PORT GPIOA
-	#define LED2_BIT GPIO_Pin_15
-	
-	#define RADIO_SPI                 SPI1
-	#define RADIO_GPIO_SPI_CS         GPIO_Pin_4
-	#define RADIO_GPIO_SPI_SCK        GPIO_Pin_5
-	#define RADIO_GPIO_SPI_MISO       GPIO_Pin_6
-	#define RADIO_GPIO_SPI_MOSI       GPIO_Pin_7
-	
-	#define GYRO_ORIENTATION(X, Y, Z) {GyroXYZ[0] = -X; GyroXYZ[1] = -Y; GyroXYZ[2] = -Z;}
-	#define ACC_ORIENTATION(X, Y, Z)  {ACCXYZ[0]  = -Y; ACCXYZ[1]  =  -X; ACCXYZ[2]  =  -Z;}
+#define LEDon Bit_SET
+#define LEDoff Bit_RESET
+
+#define LED1_PORT GPIOB
+#define LED1_BIT GPIO_Pin_2
+
+#define LED2_PORT GPIOA
+#define LED2_BIT GPIO_Pin_15
+
+#define RADIO_SPI                 SPI1
+#define RADIO_GPIO_SPI_CS         GPIO_Pin_4
+#define RADIO_GPIO_SPI_SCK        GPIO_Pin_5
+#define RADIO_GPIO_SPI_MISO       GPIO_Pin_6
+#define RADIO_GPIO_SPI_MOSI       GPIO_Pin_7
+
+#define GYRO_ORIENTATION(X, Y, Z) {GyroXYZ[0] = -X; GyroXYZ[1] = -Y; GyroXYZ[2] = -Z;}
+#define ACC_ORIENTATION(X, Y, Z)  {ACCXYZ[0]  = -Y; ACCXYZ[1]  =  -X; ACCXYZ[2]  =  -Z;}
 #endif
 
 #if defined(CX_10_BLUE_BOARD)
-	#define LEDon Bit_RESET
-	#define LEDoff Bit_SET
+#define LEDon Bit_RESET
+#define LEDoff Bit_SET
 
-	#define LED1_PORT GPIOB
-	#define LED1_BIT GPIO_Pin_2
-	
-	#define LED2_PORT GPIOB
-	#define LED2_BIT GPIO_Pin_1
+#define LED1_PORT GPIOB
+#define LED1_BIT GPIO_Pin_2
 
-	#define GYRO_ORIENTATION(X, Y, Z) {GyroXYZ[0] = X; GyroXYZ[1] = Y; GyroXYZ[2] = -Z;}
-	#define ACC_ORIENTATION(X, Y, Z)  {ACCXYZ[0]  = Y; ACCXYZ[1]  =  -X; ACCXYZ[2]  =  Z;}
+#define LED2_PORT GPIOB
+#define LED2_BIT GPIO_Pin_1
+
+#define GYRO_ORIENTATION(X, Y, Z) {GyroXYZ[0] = X; GyroXYZ[1] = Y; GyroXYZ[2] = -Z;}
+#define ACC_ORIENTATION(X, Y, Z)  {ACCXYZ[0]  = Y; ACCXYZ[1]  =  -X; ACCXYZ[2]  =  Z;}
 #endif
 
 
@@ -107,7 +107,7 @@
 #include "serial.h"
 #include "nrf24RX.h"
 #include "nrf24l01.h"
-	
+
 #include <stdbool.h>
 #include <string.h>
 

@@ -4,7 +4,7 @@
   * @author  MCD Application Team
   * @version V1.3.0
   * @date    16-January-2014
-  * @brief   This file contains all the functions prototypes for the RCC 
+  * @brief   This file contains all the functions prototypes for the RCC
   *          firmware library.
   ******************************************************************************
   * @attention
@@ -17,8 +17,8 @@
   *
   *        http://www.st.com/software_license_agreement_liberty_v2
   *
-  * Unless required by applicable law or agreed to in writing, software 
-  * distributed under the License is distributed on an "AS IS" BASIS, 
+  * Unless required by applicable law or agreed to in writing, software
+  * distributed under the License is distributed on an "AS IS" BASIS,
   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   * See the License for the specific language governing permissions and
   * limitations under the License.
@@ -31,7 +31,7 @@
 #define __STM32F0XX_RCC_H
 
 #ifdef __cplusplus
- extern "C" {
+extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
@@ -47,18 +47,17 @@
 
 /* Exported types ------------------------------------------------------------*/
 
-typedef struct
-{
-  uint32_t SYSCLK_Frequency;
-  uint32_t HCLK_Frequency;
-  uint32_t PCLK_Frequency;
-  uint32_t ADCCLK_Frequency;
-  uint32_t CECCLK_Frequency;
-  uint32_t I2C1CLK_Frequency;
-  uint32_t USART1CLK_Frequency;
-  uint32_t USART2CLK_Frequency; /*!< Only applicable for STM32F072 devices */
-  uint32_t USBCLK_Frequency; /*!< Only applicable for STM32F072 devices */
-}RCC_ClocksTypeDef;
+typedef struct {
+    uint32_t SYSCLK_Frequency;
+    uint32_t HCLK_Frequency;
+    uint32_t PCLK_Frequency;
+    uint32_t ADCCLK_Frequency;
+    uint32_t CECCLK_Frequency;
+    uint32_t I2C1CLK_Frequency;
+    uint32_t USART1CLK_Frequency;
+    uint32_t USART2CLK_Frequency; /*!< Only applicable for STM32F072 devices */
+    uint32_t USBCLK_Frequency; /*!< Only applicable for STM32F072 devices */
+} RCC_ClocksTypeDef;
 
 /* Exported constants --------------------------------------------------------*/
 
@@ -66,7 +65,7 @@ typedef struct
   * @{
   */
 
-/** @defgroup RCC_HSE_configuration 
+/** @defgroup RCC_HSE_configuration
   * @{
   */
 
@@ -78,9 +77,9 @@ typedef struct
 
 /**
   * @}
-  */ 
- 
-/** @defgroup RCC_PLL_Clock_Source 
+  */
+
+/** @defgroup RCC_PLL_Clock_Source
   * @{
   */
 
@@ -97,9 +96,9 @@ typedef struct
                                    ((SOURCE) == RCC_PLLSource_PREDIV1))
 /**
   * @}
-  */ 
+  */
 
-/** @defgroup RCC_PLL_Multiplication_Factor 
+/** @defgroup RCC_PLL_Multiplication_Factor
   * @{
   */
 
@@ -161,8 +160,8 @@ typedef struct
 /**
   * @}
   */
- 
-/** @defgroup RCC_System_Clock_Source 
+
+/** @defgroup RCC_System_Clock_Source
   * @{
   */
 
@@ -199,7 +198,7 @@ typedef struct
                            ((HCLK) == RCC_SYSCLK_Div512))
 /**
   * @}
-  */ 
+  */
 
 /** @defgroup RCC_APB_Clock_Source
   * @{
@@ -216,8 +215,8 @@ typedef struct
 /**
   * @}
   */
-  
-/** @defgroup RCC_ADC_clock_source 
+
+/** @defgroup RCC_ADC_clock_source
   * @{
   */
 /* These defines are obsolete and kept for legacy purpose only.
@@ -233,7 +232,7 @@ Proper ADC clock selection is done within ADC driver by mean of the ADC_ClockMod
   * @}
   */
 
-/** @defgroup RCC_CEC_clock_source 
+/** @defgroup RCC_CEC_clock_source
   * @{
   */
 
@@ -246,7 +245,7 @@ Proper ADC clock selection is done within ADC driver by mean of the ADC_ClockMod
   * @}
   */
 
-/** @defgroup RCC_I2C_clock_source 
+/** @defgroup RCC_I2C_clock_source
   * @{
   */
 
@@ -273,7 +272,7 @@ Proper ADC clock selection is done within ADC driver by mean of the ADC_ClockMod
   * @}
   */
 
-/** @defgroup RCC_USART_clock_source 
+/** @defgroup RCC_USART_clock_source
   * @{
   */
 
@@ -299,8 +298,8 @@ Proper ADC clock selection is done within ADC driver by mean of the ADC_ClockMod
 /**
   * @}
   */
-         
-/** @defgroup RCC_Interrupt_Source 
+
+/** @defgroup RCC_Interrupt_Source
   * @{
   */
 
@@ -325,8 +324,8 @@ Proper ADC clock selection is done within ADC driver by mean of the ADC_ClockMod
 /**
   * @}
   */
-  
-/** @defgroup RCC_LSE_Configuration 
+
+/** @defgroup RCC_LSE_Configuration
   * @{
   */
 
@@ -354,7 +353,7 @@ Proper ADC clock selection is done within ADC driver by mean of the ADC_ClockMod
   * @}
   */
 
-/** @defgroup RCC_LSE_Drive_Configuration 
+/** @defgroup RCC_LSE_Drive_Configuration
   * @{
   */
 
@@ -367,8 +366,8 @@ Proper ADC clock selection is done within ADC driver by mean of the ADC_ClockMod
 /**
   * @}
   */
-  
-/** @defgroup RCC_AHB_Peripherals 
+
+/** @defgroup RCC_AHB_Peripherals
   * @{
   */
 
@@ -391,7 +390,7 @@ Proper ADC clock selection is done within ADC driver by mean of the ADC_ClockMod
   * @}
   */
 
-/** @defgroup RCC_APB2_Peripherals 
+/** @defgroup RCC_APB2_Peripherals
   * @{
   */
 
@@ -409,9 +408,9 @@ Proper ADC clock selection is done within ADC driver by mean of the ADC_ClockMod
 
 /**
   * @}
-  */ 
+  */
 
-/** @defgroup RCC_APB1_Peripherals 
+/** @defgroup RCC_APB1_Peripherals
   * @{
   */
 
@@ -461,7 +460,7 @@ Proper ADC clock selection is done within ADC driver by mean of the ADC_ClockMod
                                    ((SOURCE) == RCC_MCOSource_PLLCLK)  || ((SOURCE) == RCC_MCOSource_LSE))
 /**
   * @}
-  */ 
+  */
 
 /** @defgroup RCC_MCOPrescaler
   * @{
@@ -477,19 +476,19 @@ Proper ADC clock selection is done within ADC driver by mean of the ADC_ClockMod
 #define RCC_MCOPrescaler_128          RCC_CFGR_MCO_PRE_128
 
 #define IS_RCC_MCO_PRESCALER(PRESCALER) (((PRESCALER) == RCC_MCOPrescaler_1)  || \
-                                         ((PRESCALER) == RCC_MCOPrescaler_2)  || \
-                                         ((PRESCALER) == RCC_MCOPrescaler_4)  || \
-                                         ((PRESCALER) == RCC_MCOPrescaler_8)  || \
-                                         ((PRESCALER) == RCC_MCOPrescaler_16) || \
-                                         ((PRESCALER) == RCC_MCOPrescaler_32) || \
-                                         ((PRESCALER) == RCC_MCOPrescaler_64) || \
-                                         ((PRESCALER) == RCC_MCOPrescaler_128))
-#endif /* STM32F051 */                                         
+        ((PRESCALER) == RCC_MCOPrescaler_2)  || \
+        ((PRESCALER) == RCC_MCOPrescaler_4)  || \
+        ((PRESCALER) == RCC_MCOPrescaler_8)  || \
+        ((PRESCALER) == RCC_MCOPrescaler_16) || \
+        ((PRESCALER) == RCC_MCOPrescaler_32) || \
+        ((PRESCALER) == RCC_MCOPrescaler_64) || \
+        ((PRESCALER) == RCC_MCOPrescaler_128))
+#endif /* STM32F051 */
 /**
   * @}
-  */ 
+  */
 
-/** @defgroup RCC_Flag 
+/** @defgroup RCC_Flag
   * @{
   */
 #define RCC_FLAG_HSIRDY                  ((uint8_t)0x01)
@@ -506,7 +505,7 @@ Proper ADC clock selection is done within ADC driver by mean of the ADC_ClockMod
 #define RCC_FLAG_WWDGRST                 ((uint8_t)0x5E)
 #define RCC_FLAG_LPWRRST                 ((uint8_t)0x5F)
 #define RCC_FLAG_HSI14RDY                ((uint8_t)0x61)
-#define RCC_FLAG_HSI48RDY                ((uint8_t)0x71) /*!< Only applicable for STM32F072 devices */ 
+#define RCC_FLAG_HSI48RDY                ((uint8_t)0x71) /*!< Only applicable for STM32F072 devices */
 
 #define IS_RCC_FLAG(FLAG) (((FLAG) == RCC_FLAG_HSIRDY)  || ((FLAG) == RCC_FLAG_HSERDY)  || \
                            ((FLAG) == RCC_FLAG_PLLRDY)  || ((FLAG) == RCC_FLAG_LSERDY)  || \
@@ -547,14 +546,16 @@ void RCC_LSEDriveConfig(uint32_t RCC_LSEDrive);
 void RCC_LSICmd(FunctionalState NewState);
 void RCC_PLLConfig(uint32_t RCC_PLLSource, uint32_t RCC_PLLMul);
 void RCC_PLLCmd(FunctionalState NewState);
-void RCC_HSI48Cmd(FunctionalState NewState); /*!< Only applicable for STM32F072 devices */
-uint32_t RCC_GetHSI48CalibrationValue(void); /*!< Only applicable for STM32F072 devices */
+void RCC_HSI48Cmd(FunctionalState
+                  NewState); /*!< Only applicable for STM32F072 devices */
+uint32_t RCC_GetHSI48CalibrationValue(
+    void); /*!< Only applicable for STM32F072 devices */
 void RCC_PREDIV1Config(uint32_t RCC_PREDIV1_Div);
 void RCC_ClockSecuritySystemCmd(FunctionalState NewState);
 #ifdef STM32F051
 void RCC_MCOConfig(uint8_t RCC_MCOSource);
 #else
-void RCC_MCOConfig(uint8_t RCC_MCOSource,uint32_t RCC_MCOPrescaler);
+void RCC_MCOConfig(uint8_t RCC_MCOSource, uint32_t RCC_MCOPrescaler);
 #endif /* STM32F051 */
 
 /* System, AHB and APB busses clocks configuration functions ******************/
@@ -568,7 +569,8 @@ void RCC_ADCCLKConfig(uint32_t RCC_ADCCLK); /* This function is obsolete.
 void RCC_CECCLKConfig(uint32_t RCC_CECCLK);
 void RCC_I2CCLKConfig(uint32_t RCC_I2CCLK);
 void RCC_USARTCLKConfig(uint32_t RCC_USARTCLK);
-void RCC_USBCLKConfig(uint32_t RCC_USBCLK); /*!< Only applicable for STM32F042 and STM32F072 devices */
+void RCC_USBCLKConfig(uint32_t
+                      RCC_USBCLK); /*!< Only applicable for STM32F042 and STM32F072 devices */
 void RCC_GetClocksFreq(RCC_ClocksTypeDef* RCC_Clocks);
 
 /* Peripheral clocks configuration functions **********************************/
@@ -603,6 +605,6 @@ void RCC_ClearITPendingBit(uint8_t RCC_IT);
 
 /**
   * @}
-  */ 
+  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
